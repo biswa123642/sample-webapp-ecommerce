@@ -8,6 +8,6 @@ EXPOSE 8080
 
 WORKDIR /opt
 
-ENV APP=food
+ENV APP=pay
 
 ENTRYPOINT ["python", "app.py"]
