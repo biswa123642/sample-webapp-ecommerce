@@ -8,10 +8,6 @@ EXPOSE 8080
 
 WORKDIR /opt
 
-ENV APP=404 \
-    APP=apparels \
-    APP=food \
-    APP=pay \
-    APP=video 
+ENV APP=404  
 
 ENTRYPOINT ["python", "app.py"]
