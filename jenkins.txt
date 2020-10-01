@@ -1,0 +1,38 @@
+  
+pipeline {
+environment {
+registry = "sahu123/e-commorce"
+registryCredential = 'Dockerhub-cred'
+dockerImage = ''
+}
+agent any
+stages {
+stage('Cloning our Git') {
+steps {
+git 'https://github.com/biswa123642/JenkinsDocker.git'
+}
+}
+stage('Building our image') {
+steps{
+script {
+dockerImage = docker.build registry + ":$BUILD_NUMBER"
+}
+}
+}
+stage('Deploy our image') {
+steps{
+script {
+docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub-cred') {
+dockerImage.push()
+
+}
+}
+}
+}
+stage('Cleaning up') {
+steps{
+sh "docker rmi $registry:$BUILD_NUMBER"
+}
+}
+}
+}
