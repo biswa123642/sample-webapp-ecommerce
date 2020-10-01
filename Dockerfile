@@ -8,6 +8,6 @@ EXPOSE 8080
 
 WORKDIR /opt
 
-ENV APP=pay
+ENV APP=video
 
 ENTRYPOINT ["python", "app.py"]
