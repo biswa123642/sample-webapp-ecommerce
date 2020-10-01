@@ -1,7 +1,7 @@
   
 pipeline {
 environment {
-registry = "sahu123/e-commorce:404"
+registry = "sahu123/e-commorce"
 registryCredential = 'Dockerhub-cred'
 dockerImage = ''
 }
